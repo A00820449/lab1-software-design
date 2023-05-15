@@ -21,7 +21,6 @@ public abstract class PizzaStore {
         p.cook();
         p.slice();
         p.box();
-        
         return p;
     }
 
