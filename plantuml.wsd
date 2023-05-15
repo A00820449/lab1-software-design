@@ -1,4 +1,4 @@
-@startuml
+@startuml class
 
 skin rose
 
@@ -14,46 +14,38 @@ abstract class PizzaStore {
   
 }
 
-class NYPizzaFactory {
+PizzaStore ..> Pizza
+
+class NYPizzaFactory extends PizzaStore {
   CheesePizza createCheesePizza()
   VeganPizza createVeganPizza()
   HawaiianPizza createHawaiianPizza()
 }
 
-class ChicagoPizzaFactory {
+class ChicagoPizzaFactory extends PizzaStore {
   CheesePizza createCheesePizza()
   VeganPizza createVeganPizza()
   HawaiianPizza createHawaiianPizza()
 }
 
-class CaliforniaPizzaFactory {
+class CaliforniaPizzaFactory extends PizzaStore {
   CheesePizza createCheesePizza()
   VeganPizza createVeganPizza()
   HawaiianPizza createHawaiianPizza()
 }
 
 interface Pizza {
-  {abstract} void prepare()
-}
-
-class CheesePizza {
-  void prepare()
-}
-class VeganPizza {
-  void prepare()
-}
-class HawaiianPizza {
   void prepare()
 }
 
-CheesePizza ..|> Pizza : implements
-VeganPizza ..|> Pizza : implements
-HawaiianPizza ..|> Pizza : implements
-
-PizzaStore ..> Pizza: uses
-
-NYPizzaFactory --|> PizzaStore
-ChicagoPizzaFactory --|> PizzaStore
-CaliforniaPizzaFactory --|> PizzaStore
+class CheesePizza implements Pizza {
+  void prepare()
+}
+class VeganPizza implements Pizza {
+  void prepare()
+}
+class HawaiianPizza implements Pizza {
+  void prepare()
+}
 
 @enduml
