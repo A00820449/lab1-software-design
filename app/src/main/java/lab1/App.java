@@ -33,5 +33,6 @@ public class App {
         if (p != null) {
             System.out.println("Listo!");
         }
+        s.close();
     }
 }
