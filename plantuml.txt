@@ -1,0 +1,59 @@
+@startuml
+
+skin rose
+
+title Classes - Class Diagram
+
+
+abstract class PizzaStore {
+  {abstract} CheesePizza createCheesePizza()
+  {abstract} VeganPizza createVeganPizza()
+  {abstract} HawaiianPizza createHawaiianPizza()
+  
+  Pizza orderPizza(String request)
+  
+}
+
+class NYPizzaFactory {
+  CheesePizza createCheesePizza()
+  VeganPizza createVeganPizza()
+  HawaiianPizza createHawaiianPizza()
+}
+
+class ChicagoPizzaFactory {
+  CheesePizza createCheesePizza()
+  VeganPizza createVeganPizza()
+  HawaiianPizza createHawaiianPizza()
+}
+
+class CaliforniaPizzaFactory {
+  CheesePizza createCheesePizza()
+  VeganPizza createVeganPizza()
+  HawaiianPizza createHawaiianPizza()
+}
+
+interface Pizza {
+  {abstract} void prepare()
+}
+
+class CheesePizza {
+  void prepare()
+}
+class VeganPizza {
+  void prepare()
+}
+class HawaiianPizza {
+  void prepare()
+}
+
+CheesePizza ..|> Pizza : implements
+VeganPizza ..|> Pizza : implements
+HawaiianPizza ..|> Pizza : implements
+
+PizzaStore ..> Pizza: uses
+
+NYPizzaFactory --|> PizzaStore
+ChicagoPizzaFactory --|> PizzaStore
+CaliforniaPizzaFactory --|> PizzaStore
+
+@enduml
