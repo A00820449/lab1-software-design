@@ -1,6 +1,6 @@
 package lab1;
 
-public class NYPizzaFactory extends PizzaStore {
+public class NYPizzaFactory extends PizzaFactory {
     @Override
     public CheesePizza createCheesePizza() {
         System.out.println("Preparando pizza de queso estilo NY...");
@@ -17,7 +17,7 @@ public class NYPizzaFactory extends PizzaStore {
 
     @Override
     public VeggiePizza createVeggiePizza() {
-        System.out.println("Preparando pizza vegana estilo NY...");
+        System.out.println("Preparando pizza vegetariana estilo NY...");
         VeggiePizza p = new NYVeggiePizza();
         return p;
     }

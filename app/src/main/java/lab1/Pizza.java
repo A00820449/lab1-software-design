@@ -4,7 +4,6 @@ public abstract class Pizza {
     public String dough;
     public String sauce;
     public String cheese;
-    public String name;
     public String[] toppings;
 
     public void prepare() {
@@ -36,8 +35,7 @@ public abstract class Pizza {
     }
 
     public String toString() {
-        return  "Nombre: " + name + '\n' +
-                "Masa: " + dough + '\n' +
+        return  "Masa: " + dough + '\n' +
                 "Salsa: " + sauce + '\n' +
                 "Queso: " + cheese + '\n' +
                 "Ingredientes: " + String.join(", ", toppings);

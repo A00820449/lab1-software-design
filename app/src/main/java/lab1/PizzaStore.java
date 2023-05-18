@@ -1,16 +1,21 @@
 package lab1;
 
-public abstract class PizzaStore {
+public class PizzaStore {
+    PizzaFactory f;
+    PizzaStore(PizzaFactory f) {
+        this.f = f;
+    }
+
     public Pizza orderPizza(String request) {
         Pizza p = null;
         if (request.equalsIgnoreCase("cheese")) {
-            p = createCheesePizza();
+            p = f.createCheesePizza();
         }
-        else if (request.equalsIgnoreCase("vegan")) {
-            p = createVeggiePizza();
+        else if (request.equalsIgnoreCase("veggie")) {
+            p = f.createVeggiePizza();
         }
         else if (request.equalsIgnoreCase("hawaiian")) {
-            p = createHawaiianPizza();
+            p = f.createHawaiianPizza();
         }
         else {
             System.err.println("Error: Pizza invalida...");
@@ -23,8 +28,4 @@ public abstract class PizzaStore {
         p.box();
         return p;
     }
-
-    public abstract CheesePizza createCheesePizza();
-    public abstract VeggiePizza createVeggiePizza();
-    public abstract HawaiianPizza createHawaiianPizza();
 }
