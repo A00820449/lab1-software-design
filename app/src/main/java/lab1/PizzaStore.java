@@ -7,7 +7,7 @@ public abstract class PizzaStore {
             p = createCheesePizza();
         }
         else if (request.equalsIgnoreCase("vegan")) {
-            p = createVeganPizza();
+            p = createVeggiePizza();
         }
         else if (request.equalsIgnoreCase("hawaiian")) {
             p = createHawaiianPizza();
@@ -25,6 +25,6 @@ public abstract class PizzaStore {
     }
 
     public abstract CheesePizza createCheesePizza();
-    public abstract VeganPizza createVeganPizza();
+    public abstract VeggiePizza createVeggiePizza();
     public abstract HawaiianPizza createHawaiianPizza();
 }

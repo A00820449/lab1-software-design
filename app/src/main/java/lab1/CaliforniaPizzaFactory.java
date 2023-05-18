@@ -4,21 +4,21 @@ public class CaliforniaPizzaFactory extends PizzaStore {
     @Override
     public CheesePizza createCheesePizza() {
         System.out.println("Preparando pizza de queso estilo California...");
-        CheesePizza p = new CheesePizza();
+        CheesePizza p = new CaliforniaCheesePizza();
         return p;
     }
 
     @Override
     public HawaiianPizza createHawaiianPizza() {
         System.out.println("Preparando pizza Hawaiiana estilo California...");
-        HawaiianPizza p = new HawaiianPizza();
+        HawaiianPizza p = new CaliforniaHawaiianPizza();
         return p;
     }
 
     @Override
-    public VeganPizza createVeganPizza() {
+    public VeggiePizza createVeggiePizza() {
         System.out.println("Preparando pizza vegana estilo California...");
-        VeganPizza p = new VeganPizza();
+        VeggiePizza p = new CaliforniaVeggiePizza();
         return p;
     }
 }
