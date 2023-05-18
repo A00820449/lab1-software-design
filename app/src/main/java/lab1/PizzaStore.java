@@ -1,21 +1,21 @@
 package lab1;
 
 public class PizzaStore {
-    PizzaFactory f;
-    PizzaStore(PizzaFactory f) {
-        this.f = f;
+    private PizzaFactory factory;
+    PizzaStore(PizzaFactory factory) {
+        this.factory = factory;
     }
 
     public Pizza orderPizza(String request) {
         Pizza p = null;
         if (request.equalsIgnoreCase("cheese")) {
-            p = f.createCheesePizza();
+            p = factory.createCheesePizza();
         }
         else if (request.equalsIgnoreCase("veggie")) {
-            p = f.createVeggiePizza();
+            p = factory.createVeggiePizza();
         }
         else if (request.equalsIgnoreCase("hawaiian")) {
-            p = f.createHawaiianPizza();
+            p = factory.createHawaiianPizza();
         }
         else {
             System.err.println("Error: Pizza invalida...");

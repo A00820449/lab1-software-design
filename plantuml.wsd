@@ -4,48 +4,119 @@ skin rose
 
 title Classes - Class Diagram
 
+abstract class Pizza {
+  +String dough
+  +String sauce
+  +String cheese
+  +String[] toppings
 
-abstract class PizzaStore {
-  {abstract} CheesePizza createCheesePizza()
-  {abstract} VeganPizza createVeganPizza()
-  {abstract} HawaiianPizza createHawaiianPizza()
+  +void prepare()
+  +void slice()
+  +void cook()
+  +void box()
+  {abstract} +String createDough()
+  {abstract} +String createSauce()
+  {abstract} +String createCheese()
+  {abstract} +String[] createToppings()
+}
+
+abstract class CheesePizza extends Pizza {
+  +String[] createToppings()
+}
+
+abstract class VeggiePizza extends Pizza {
+  +String[] createToppings()
+}
+
+abstract class HawaiianPizza extends Pizza {
+  +String[] createToppings()
+}
+
+class NYCheesePizza extends CheesePizza {
+  +String createDough()
+  +Stting createSAuce()
+  +String createCheese()
+}
+
+class NYVeggiePizza extends VeggiePizza {
+  +String createDough()
+  +Stting createSAuce()
+  +String createCheese()
+}
+
+class NYHawaiianPizza extends HawaiianPizza {
+  +String createDough()
+  +Stting createSAuce()
+  +String createCheese()
+}
+
+class CaliforniaCheesePizza extends CheesePizza {
+  +String createDough()
+  +Stting createSAuce()
+  +String createCheese()
+}
+
+class CaliforniaVeggiePizza extends VeggiePizza {
+  +String createDough()
+  +Stting createSAuce()
+  +String createCheese()
+}
+
+class CaliforniaHawaiianPizza extends HawaiianPizza {
+  +String createDough()
+  +Stting createSAuce()
+  +String createCheese()
+}
+
+class ChicagoCheesePizza extends CheesePizza {
+  +String createDough()
+  +Stting createSAuce()
+  +String createCheese()
+}
+
+class ChicagoVeggiePizza extends VeggiePizza {
+  +String createDough()
+  +Stting createSAuce()
+  +String createCheese()
+}
+
+class ChicagoHawaiianPizza extends HawaiianPizza {
+  +String createDough()
+  +Stting createSAuce()
+  +String createCheese()
+}
+
+abstract class PizzaFactory {
+  {abstract} +CheesePizza createCheesePizza()
+  {abstract} +VeggiePizza createVeggiePizza()
+  {abstract} +HawaiianPizza createHawaiianPizza()
+}
+PizzaFactory ..> Pizza
+
+class NYPizzaFactory extends PizzaFactory {
+  +CheesePizza createCheesePizza()
+  +VeggiePizza createVeggiePizza()
+  +HawaiianPizza createHawaiianPizza()
+}
+
+class ChicagoPizzaFactory extends PizzaFactory {
+  +CheesePizza createCheesePizza()
+  +VeggiePizza createVeggiePizza()
+  +HawaiianPizza createHawaiianPizza()
+}
+
+class CaliforniaPizzaFactory extends PizzaFactory {
+  +CheesePizza createCheesePizza()
+  +VeggiePizza createVeggiePizza()
+  +HawaiianPizza createHawaiianPizza()
+}
+
+class PizzaStore {
+  -PizzaFactory factory
   
-  Pizza orderPizza(String request)
-  
+  +PizzaStore(PizzaFactory factory)
+  +Pizza orderPizza(String request)
 }
-
-PizzaStore ..> Pizza
-
-class NYPizzaFactory extends PizzaStore {
-  CheesePizza createCheesePizza()
-  VeganPizza createVeganPizza()
-  HawaiianPizza createHawaiianPizza()
-}
-
-class ChicagoPizzaFactory extends PizzaStore {
-  CheesePizza createCheesePizza()
-  VeganPizza createVeganPizza()
-  HawaiianPizza createHawaiianPizza()
-}
-
-class CaliforniaPizzaFactory extends PizzaStore {
-  CheesePizza createCheesePizza()
-  VeganPizza createVeganPizza()
-  HawaiianPizza createHawaiianPizza()
-}
-
-interface Pizza {
-  void prepare()
-}
-
-class CheesePizza implements Pizza {
-  void prepare()
-}
-class VeganPizza implements Pizza {
-  void prepare()
-}
-class HawaiianPizza implements Pizza {
-  void prepare()
-}
+PizzaStore o-- PizzaFactory
 
 @enduml
