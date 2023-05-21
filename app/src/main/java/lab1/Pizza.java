@@ -27,7 +27,6 @@ public abstract class Pizza {
 
     public void cook() {
         System.out.println("Poniendo pizza en el horno...");
-        for (int i = 0; i < 1000000; i++) {}
     }
 
     public void box() {
