@@ -17,7 +17,7 @@ public class App {
             factory = new ChicagoPizzaFactory();
         }
         else if (storeOption.equalsIgnoreCase("california")) {
-            factory = new ChicagoPizzaFactory();
+            factory = new CaliforniaPizzaFactory();
         }
         else {
             System.err.println("Sucursal invalida");
